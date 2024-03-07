@@ -52,18 +52,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     borderRadius: 40,
   },
-  menu: {
-    backgroundColor: '#fff',
-    padding: 8,
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: '10%',
-    marginTop: 25,
-    marginLeft: 15,
-    marginRight: 10,
-    borderRadius: 40,
-  },
   paragraphMenu: {
     margin: 24,
     fontSize: 38,
