@@ -1,60 +1,107 @@
-import { StatusBar } from 'expo-status-bar';
-import { 
-  StyleSheet, Text, View, SafeAreaView, Image, Button, Alert 
+{/*
+  #674FFF
+  #4FA8FF
+  #766BBF
+  #6B6780
+  #AAA26D
+  #FFE84F
+*/}
+import {
+  StyleSheet, Text, View, Image, Button, Alert, TouchableOpacity
 } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function App() {
-  function alertTest(){
-    Alert.alert('Teste', 'funcionando')
-  }
+
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
 
-      <View style={styles.menu}>
-        <Ionicons
-        style={{ marginLeft: 8 }}
-        name="person-circle-sharp"
-        onPress={ alertTest }
-        size={70}/>
-        <Text
-        style={styles.paragraphMenu}
-        >Bem Vindo!!!
-        </Text>
-      </View>
+      <Topo />
 
-      <View>
-        <Text
-        style={styles.paragraphMenu}
-        >Hello World!!!
-        </Text>
-      </View>
 
-    </SafeAreaView>
+    </View>
   );
 }
+
+function Topo() {
+  return (
+    <View style={styles.topo}>
+      <Image
+        style={styles.topoImg}
+        source={require('./assets/src/assets/topoIcon.png')}
+      />
+      <View>
+        <Text
+          style={styles.title}>
+          Orga<Text style={{ color: '#000' }}>Finan
+          </Text>
+        </Text>
+        <Text style={styles.topoTxt}>Seu app de organização financeira</Text>
+      </View>
+
+    </View>
+  )
+}
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ecf0f1',
-    padding: 8,
+    paddingTop: 25,
+    paddingHorizontal: 12,
   },
-  menu: {
-    backgroundColor: '#9400d3',
+  topo: {
+    backgroundColor: '#674FFF',
     padding: 8,
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
     height: '10%',
-    marginTop: 25,
-    marginLeft: 15,
-    marginRight: 10,
     borderRadius: 40,
   },
-  paragraphMenu: {
-    margin: 24,
-    fontSize: 38,
+  topoImg: {
+    width: 90,
+    height: 80,
+    objectFit: 'contain',
+  },
+  title: {
+    fontSize: 48,
     fontWeight: 'bold',
+    color: '#fff',
+  },
+  topoTxt: {
+    fontSize: 20,
+    width: 200,
+    color: '#fff',
+    textAlign: 'center',
+  },
+  botao: {
+    justifyContent: 'space-around',
+    flexDirection: 'row',
+    marginTop: 16,
+  },
+  botaoChildren: {
+    alignItems: 'center',
+  },
+  inputBtn: {
+    width: 80,
+    height: 80,
+    backgroundColor: '#766BBF',
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  icon: {
+    color: '#fff',
+    fontSize: 32,
+    margin: 16,
+  },
+  relatorio: {
+    backgroundColor: '#4FA8FF',
+    paddingVertical: 4,
+    marginTop: 16,
+    alignItems: 'center',
+    borderRadius: 40,
   },
 });
