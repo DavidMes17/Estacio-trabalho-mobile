@@ -18,6 +18,7 @@ export default function App() {
 
       <Topo />
       <Botoes />
+      <Relatorio />
 
     </View>
   );
@@ -76,7 +77,13 @@ function Botoes() {
 
   )
 }
-
+function Relatorio() {
+  return (
+    <View style={styles.relatorio}>
+      <Text style={styles.title}>Relatório de renda</Text>
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
