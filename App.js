@@ -29,7 +29,7 @@ function Topo() {
     <View style={styles.topo}>
       <Image
         style={styles.topoImg}
-        source={require('./assets/src/assets/topoIcon.png')}
+        source={require('./src/assets/topoIcon.png')}
       />
       <View>
         <Text
