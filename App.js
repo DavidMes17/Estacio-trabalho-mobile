@@ -17,7 +17,7 @@ export default function App() {
     <View style={styles.container}>
 
       <Topo />
-
+      <Botoes />
 
     </View>
   );
@@ -40,6 +40,40 @@ function Topo() {
       </View>
 
     </View>
+  )
+}
+function Botoes() {
+  return (
+    <View style={styles.botao}>
+      <View style={styles.botaoChildren}>
+        <TouchableOpacity style={styles.inputBtn}>
+          <Ionicons style={styles.icon} name="newspaper-outline"></Ionicons>
+        </TouchableOpacity>
+        <Text>COBRANÇA</Text>
+      </View>
+
+      <View style={styles.botaoChildren}>
+        <TouchableOpacity style={styles.inputBtn}>
+          <Ionicons style={styles.icon} name="document-text-outline"></Ionicons>
+        </TouchableOpacity>
+        <Text>IMPREVISTO</Text>
+      </View>
+
+      <View style={styles.botaoChildren}>
+        <TouchableOpacity style={styles.inputBtn}>
+          <Ionicons style={styles.icon} name="wallet-outline"></Ionicons>
+        </TouchableOpacity>
+        <Text>SALÁRIO</Text>
+      </View>
+
+      <View style={styles.botaoChildren}>
+        <TouchableOpacity style={styles.inputBtn}>
+          <Ionicons style={styles.icon} name="ellipsis-horizontal-circle-outline"></Ionicons>
+        </TouchableOpacity>
+        <Text>OUTRO</Text>
+      </View>
+    </View>
+
   )
 }
 
