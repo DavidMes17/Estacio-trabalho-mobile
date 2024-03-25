@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     icon: {
         color: '#fff',
-        fontSize: 32,
+        fontSize: 40,
         margin: 16,
     },
 })
