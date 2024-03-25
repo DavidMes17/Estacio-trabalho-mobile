@@ -1,17 +1,18 @@
 {/*
   #674FFF
   #4FA8FF
+  #B0A4FF
   #766BBF
-  #6B6780
   #AAA26D
   #FFE84F
+  #D94A3B
 */}
 import {
   StyleSheet, View
 } from 'react-native';
 import { Topo } from './src/components/topo';
 import { Botoes } from './src/components/botoes';
-import { Relatorio } from './src/components/relatorio';
+import { RelatorioRenda } from './src/components/relatorioRenda';
 
 export default function App() {
 
@@ -20,7 +21,7 @@ export default function App() {
 
       <Topo />
       <Botoes />
-      <Relatorio />
+      <RelatorioRenda />
 
     </View>
   );
