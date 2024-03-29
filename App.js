@@ -6,6 +6,7 @@
   #AAA26D
   #2DED5C
   #FFE84F
+  #EDC12D
   #D94A3B
 */}
 import { useEffect, useState } from 'react';

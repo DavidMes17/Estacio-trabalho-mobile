@@ -7,8 +7,20 @@ import Svg from 'react-native-svg';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 function RelatorioRenda() {
-    const data = [1080.5 - 270.13, 270.13]
-    const cores = ['#FFE84F', '#2DED5C']
+    const despesas = [500, 500, 80, 0.5];
+
+    
+    
+    let data = [1080.50, 270.13]
+    corLucro = ''
+    if (data[1] > 0) {
+        corLucro = '#2DED5C'
+    }
+    else {
+        data[1] = data[1] * (-1)
+        corLucro = '#D94A3B'
+    }
+    const cores = ['#FFE84F', corLucro]
     const pieData = data.map((value, index) => ({
         value,
         svg: {
@@ -17,7 +29,8 @@ function RelatorioRenda() {
         key: `pie-${index}`,
     }));
 
-
+    const lucroStr = data[1].toFixed(2).toString().replace(/\./g, ',')
+    const despesaStr = data[0].toFixed(2).toString().replace(/\./g, ',')
 
     return (
         <>
@@ -28,14 +41,17 @@ function RelatorioRenda() {
             <View style={styles.retorno}>
                 <View style={styles.relatorioGrafico}>
                     <PieChart
-                        style={{ height: 225 }}
+                        style={{ height: 225, padding: 8 }}
                         data={pieData}
                         colors={cores}></PieChart>
                 </View>
                 <View style={styles.relatorioRetorno}>
-                    <Text style={styles.relatorioTxt}>retorno do capital</Text>
-                    <Text style={styles.relatorioTxt}>retorno dos pagamentos</Text>
-                    <Text style={styles.relatorioTxt}>retorno das despesas</Text>
+                    <Text style={styles.relatorioTitleRetorno}>retorno do capital</Text>
+                    <Text style={[styles.relatorioTxt, { color: corLucro }]}>R$ {lucroStr}</Text>
+                    <Text style={styles.relatorioTitleRetorno}>retorno dos pagamentos</Text>
+                    <Text style={[styles.relatorioTxt, styles.pagamento]}>R$ {despesaStr}</Text>
+                    <Text style={styles.relatorioTitleRetorno}>retorno das despesas</Text>
+                    <Text style={[styles.relatorioTxt, styles.despesa]}>{despesas.length}</Text>
                 </View>
             </View>
         </>
@@ -79,9 +95,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 8,
     },
-    relatorioTxt: {
+    relatorioTitleRetorno: {
         textTransform: 'uppercase',
         fontWeight: 'bold',
         fontSize: 15,
+    },
+    relatorioTxt: {
+        fontSize: 35,
+        fontWeight: 700,
+    },
+    pagamento: {
+        color: '#FFE84F'
+    },
+    despesa: {
+        color: '#EDC12D'
     },
 })
