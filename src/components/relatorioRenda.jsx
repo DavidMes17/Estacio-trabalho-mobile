@@ -1,10 +1,21 @@
 import {
     StyleSheet, Text, View, Image, Button, Alert, TouchableOpacity
 } from 'react-native';
+import { PieChart } from 'react-native-svg-charts';
+import Svg from 'react-native-svg';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-
 function RelatorioRenda() {
+const data = [1080.5 - 270.13, 270.13]
+const cores = ['#FFE84F', '#2DED5C']
+  const pieData = data.map((value, index) => ({
+    value,
+    svg:{
+        fill: cores[index]
+    },
+    key: `pie-${index}`,
+  }));
+
     return (
         <>
             <View style={styles.relatorio}>
@@ -13,7 +24,11 @@ function RelatorioRenda() {
 
             <View style={styles.retorno}>
                 <View style={styles.relatorioGrafico}>
-                    <Image source={require('../assets/grafico.png')} style={{ width: 225, height: 225 }} />
+                    <PieChart 
+                        style={{height: 225}}
+                        data={pieData}
+                        colors={cores}
+                    />
                 </View>
                 <View style={styles.relatorioRetorno}>
                     <Text style={styles.relatorioTxt}>retorno do capital</Text>
