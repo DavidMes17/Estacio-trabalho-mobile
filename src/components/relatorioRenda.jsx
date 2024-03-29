@@ -8,10 +8,12 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 function RelatorioRenda() {
     const despesas = [500, 500, 80, 0.5];
-
+    const dinheiro = 1350.63
+    const despesasSoma = despesas.reduce((total, valor) => total + valor, 0)
+    const lucroSoma = dinheiro - despesasSoma
     
     
-    let data = [1080.50, 270.13]
+    let data = [despesas.reduce((total, valor) => total + valor, 0), lucroSoma]
     corLucro = ''
     if (data[1] > 0) {
         corLucro = '#2DED5C'
