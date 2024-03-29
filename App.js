@@ -4,6 +4,7 @@
   #B0A4FF
   #766BBF
   #AAA26D
+  #2DED5C
   #FFE84F
   #D94A3B
 */}
@@ -69,6 +70,8 @@ function Biometria({ navigation }) {
     if (auth.success) {
       setIsAuthenticated(true)
       navigation.replace('index')
+    } else {
+      Alert.alert('Erro', 'Ocorreu um erro na biometria, tente novamente ou feche o app!')
     }
 
   }
