@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 
-export default function Urgencia({ navigation }) {
+export default function Urgencia() {
     return (<View style={{ flex: 2 }}>
         <View style={styles.urgencia}>
             <Text style={styles.urgenciaTitle}>Relatório de urgências</Text>
