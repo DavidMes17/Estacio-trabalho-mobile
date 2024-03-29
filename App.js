@@ -27,6 +27,7 @@ import Outro from './src/components/screens/outro';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Urgencia from './src/components/urgencia';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -100,6 +101,7 @@ function Index({ navigation }) {
       <Topo />
       <Botoes navigation={navigation} />
       <RelatorioRenda />
+      <Urgencia />
     </View>
   )
 }
