@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import {
   Alert,
   Button,
-  StyleSheet, Text, View
+  StyleSheet, Text, TouchableOpacity, View, ImageBackground
 } from 'react-native';
 import * as localAuthentication from 'expo-local-authentication'
 import { Topo } from './src/components/topo';
@@ -60,6 +60,7 @@ function Biometria({ navigation }) {
     console.log('biometria cadastrada: ' + temBiometria)
     if (!temBiometria) {
       return Alert.alert('Aviso', 'Não há biometria cadastrada')
+      navigation.replace('index')
     }
 
     const auth = await localAuthentication.authenticateAsync({
@@ -71,17 +72,24 @@ function Biometria({ navigation }) {
       setIsAuthenticated(true)
       navigation.replace('index')
     } else {
-      Alert.alert('Erro', 'Ocorreu um erro na biometria, tente novamente ou feche o app!')
+      Alert.alert('Erro', 'Ocorreu um erro na biometria, tente novamente ou reinicie o app!')
     }
 
   }
 
-  return (
+  return (<>
+    <ImageBackground source={require('./src/assets/backgroundImage.jpg')} style={styles.biometriaCtn}>
+      <Text style={styles.biometriaTxt}>Acesse o melhor App de organização financeira com segurança</Text>
+    </ImageBackground>
+
     <View style={styles.container}>
-      <Text>Acesse Seu App com a biometria</Text>
-      <Button title='Pedir biometria' onPress={PedirBiometria} />
+    <TouchableOpacity style={styles.biometriaBtn} onPress={PedirBiometria}>
+        <Text style={{ fontSize: 35, color: '#fff', fontWeight: 'bold' }}>
+          Acessar com Biometria
+        </Text>
+      </TouchableOpacity>
     </View>
-  );
+  </>);
 }
 
 
@@ -101,5 +109,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#ecf0f1',
     paddingTop: 25,
     paddingHorizontal: 12,
+  },
+  biometriaCtn:{
+    flex: 9,
+    paddingTop: 25,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+  },
+  biometriaBtn: {
+    flex: 1,
+    backgroundColor: '#674FFF',
+    marginVertical: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+  },
+  biometriaTxt:{
+    fontSize: 50,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#fff',
   },
 });
